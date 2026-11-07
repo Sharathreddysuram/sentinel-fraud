@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Oct 06 20:00:40 UTC 2026
+@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1791316840199
+https\://repo.maven.apache.org/maven2/.error=Could not transfer artifact org.springframework.boot\:spring-boot-starter-parent\:pom\:3.2.5 from/to central (https\://repo.maven.apache.org/maven2)\: Unsupported or unrecognized SSL message
+e43b503a224b15212125933fb2116c70273cec3d@hatch-egress-proxy\:3128>@default-central-https\://repo.maven.apache.org/maven2/.lastUpdated=1791316776723

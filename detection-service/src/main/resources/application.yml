@@ -1,0 +1,53 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    name: detection-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: sentinel-detection
+      auto-offset-reset: earliest
+  datasource:
+    url: jdbc:h2:mem:detectiondb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate.format_sql: true
+  h2:
+    console:
+      enabled: true
+
+# Fraud rule thresholds. Bound into RuleProperties; also tunable at runtime
+# via PUT /api/rules — the engine reads them on every evaluation.
+fraud:
+  rules:
+    velocity:
+      max-transactions: 5
+      window-minutes: 10
+      weight: 40
+    amount:
+      absolute-threshold: 10000
+      multiplier-vs-average: 3.0
+      weight: 35
+    geo:
+      window-minutes: 60
+      weight: 25
+    alert-threshold-score: 50
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.sharath.sentinel.detection: INFO
+    org.apache.kafka: WARN
